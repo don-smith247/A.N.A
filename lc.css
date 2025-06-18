@@ -1,0 +1,1186 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #ffffff;
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Navigation Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(30, 64, 175, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 4px 20px rgba(30, 64, 175, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 2rem;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: block;
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            padding: 12px 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            margin: 0 4px;
+        }
+
+        .nav-link:hover {
+            color: #1e40af;
+            background: rgba(30, 64, 175, 0.05);
+            transform: translateY(-1px);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .btn-outline {
+            color: #1e40af;
+            border: 2px solid #1e40af;
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: #1e40af;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.3);
+        }
+
+        .btn-primary {
+            background: #1e40af;
+            color: white;
+            border: 2px solid #1e40af;
+        }
+
+        .btn-primary:hover {
+            background: #1d4ed8;
+            border-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.4);
+        }
+
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        .mobile-toggle:hover {
+            background: rgba(30, 64, 175, 0.05);
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #1e40af;
+            margin: 3px 0;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+            overflow-y: auto;
+            border-top: 1px solid rgba(30, 64, 175, 0.1);
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-nav .nav-link {
+            padding: 16px 20px;
+            margin: 0;
+            background: rgba(30, 64, 175, 0.05);
+            border: 1px solid rgba(30, 64, 175, 0.1);
+            border-radius: 12px;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .mobile-nav .nav-link:hover {
+            background: rgba(30, 64, 175, 0.1);
+            transform: none;
+        }
+
+        .mobile-actions {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .mobile-actions .btn {
+            text-align: center;
+            padding: 16px 24px;
+            font-size: 15px;
+        }
+
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-container {
+                padding: 0 1.5rem;
+            }
+
+            .nav-link {
+                padding: 12px 16px;
+                font-size: 13px;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 12px;
+            }
+
+            .nav-actions {
+                gap: 8px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .nav-menu,
+            .nav-actions {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+                height: 70px;
+            }
+
+            .logo img {
+                height: 45px;
+            }
+
+            .mobile-menu {
+                top: 70px;
+                height: calc(100vh - 70px);
+            }
+
+           
+        }
+
+        @media (max-width: 480px) {
+            .nav-container {
+                padding: 0 0.75rem;
+                height: 65px;
+            }
+
+            .logo img {
+                height: 40px;
+            }
+
+            .mobile-menu {
+                top: 65px;
+                height: calc(100vh - 65px);
+            }
+
+            .mobile-nav {
+                padding: 1.5rem;
+            }
+
+            
+        }
+
+.ana-legal-container {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            min-height: 100vh;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ana-legal-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(30, 64, 175, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(30, 64, 175, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 60% 40%, rgba(30, 64, 175, 0.02) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        .ana-legal-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .ana-legal-header {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .ana-legal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(30, 64, 175, 0.3);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .ana-legal-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(30, 64, 175, 0.4);
+        }
+
+        .ana-legal-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #1e293b;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .ana-legal-highlight {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ana-legal-subtitle {
+            font-size: 1.25rem;
+            color: #64748b;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .ana-compliance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .ana-compliance-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(30, 64, 175, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ana-compliance-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .ana-compliance-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .ana-compliance-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(30, 64, 175, 0.15);
+        }
+
+        .ana-compliance-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .ana-compliance-icon::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            border-radius: 17px;
+            z-index: -1;
+            opacity: 0.3;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.05); }
+        }
+
+        .ana-compliance-icon i {
+            color: white;
+            font-size: 24px;
+        }
+
+        .ana-compliance-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .ana-compliance-desc {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .ana-compliance-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ana-compliance-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            color: #64748b;
+        }
+
+        .ana-compliance-list li i {
+            color: #1e40af;
+            font-size: 12px;
+        }
+
+        .ana-legal-sections {
+            margin-top: 80px;
+        }
+
+        .ana-legal-section {
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #1e40af;
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .ana-legal-section h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .ana-legal-section h3 i {
+            color: #1e40af;
+            font-size: 1.5rem;
+        }
+
+        .ana-legal-section p {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .ana-contact-compliance {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            color: white;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ana-contact-compliance::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            right: -50%;
+            bottom: -50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .ana-contact-compliance > * {
+            position: relative;
+            z-index: 2;
+        }
+
+        .ana-contact-compliance h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .ana-contact-compliance p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .ana-compliance-btn {
+            display: inline-block;
+            background: white;
+            color: #1e40af;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.3);
+        }
+
+        .ana-compliance-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.4);
+            color: #1e40af;
+        }
+
+        .ana-risk-warning {
+            background: linear-gradient(135deg, #fef3c7, #fbbf24);
+            border: 1px solid #f59e0b;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .ana-risk-warning::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #f59e0b, #d97706);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .ana-risk-warning h4 {
+            color: #92400e;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ana-risk-warning p {
+            color: #92400e;
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ana-legal-title {
+                font-size: 2.5rem;
+            }
+            
+            .ana-compliance-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .ana-legal-section {
+                padding: 30px;
+            }
+            
+            .ana-contact-compliance {
+                padding: 40px 20px;
+            }
+        }
+        .ana-footer {
+            background: linear-gradient(135deg, #1d4ed8 0%, #1e3a8a 100%);
+            color: #e2e8f0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 2rem;
+            box-shadow: 
+                0 32px 64px -12px rgba(29, 78, 216, 0.4),
+                0 20px 25px -5px rgba(29, 78, 216, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .ana-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(96, 165, 250, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(147, 197, 253, 0.1) 0%, transparent 50%),
+                linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+            opacity: 1;
+        }
+
+        .ana-footer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .ana-footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .ana-footer-top {
+            padding: 4rem 0 3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ana-footer-brand {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .ana-footer-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .ana-footer-logo i {
+            background: linear-gradient(45deg, #fbbf24, #f59e0b, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 3rem;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2)); }
+            to { filter: drop-shadow(0 4px 8px rgba(96, 165, 250, 0.4)); }
+        }
+
+        .ana-footer-logo h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -0.05em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ana-footer-tagline {
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 500;
+        }
+
+        .ana-footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .ana-footer-section h3 {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .ana-footer-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 3rem;
+            height: 3px;
+            background: linear-gradient(90deg, #fbbf24, #f59e0b, #60a5fa);
+            border-radius: 2px;
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 1; transform: scaleX(1); }
+            50% { opacity: 0.7; transform: scaleX(1.1); }
+        }
+
+        .ana-footer-about {
+            padding-right: 2rem;
+        }
+
+        .ana-footer-about p {
+            color: #cbd5e1;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .ana-trust-badges {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .ana-trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            padding: 0.75rem 1.25rem;
+            border-radius: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ana-trust-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .ana-trust-badge:hover::before {
+            left: 100%;
+        }
+
+        .ana-trust-badge:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(96, 165, 250, 0.3);
+            border-color: rgba(96, 165, 250, 0.5);
+        }
+
+        .ana-trust-badge i {
+            color: #10b981;
+            font-size: 0.875rem;
+        }
+
+        .ana-trust-badge span {
+            color: #e2e8f0;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .ana-footer-links {
+            list-style: none;
+        }
+
+        .ana-footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .ana-footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .ana-footer-links a:hover {
+            color: #60a5fa;
+            transform: translateX(4px);
+        }
+
+        .ana-footer-links a i {
+            font-size: 0.875rem;
+            width: 1rem;
+        }
+
+        .ana-contact-info {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ana-contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .ana-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .ana-contact-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .ana-contact-item i {
+            color: #60a5fa;
+            font-size: 1.1rem;
+            margin-top: 0.125rem;
+            min-width: 1.25rem;
+        }
+
+        .ana-contact-item div {
+            flex: 1;
+        }
+
+        .ana-contact-item strong {
+            color: white;
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .ana-contact-item span {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .ana-newsletter {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ana-newsletter::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .ana-newsletter p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .ana-newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .ana-newsletter input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 0.875rem;
+        }
+
+        .ana-newsletter input::placeholder {
+            color: #94a3b8;
+        }
+
+        .ana-newsletter input:focus {
+            outline: none;
+            border-color: #60a5fa;
+            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1);
+        }
+
+        .ana-newsletter button {
+            padding: 0.875rem 2rem;
+            background: linear-gradient(45deg, #fbbf24, #f59e0b, #60a5fa, #3b82f6);
+            background-size: 300% 300%;
+            border: none;
+            border-radius: 0.75rem;
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .ana-newsletter button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.5s ease;
+        }
+
+        .ana-newsletter button:hover::before {
+            transform: translateX(100%);
+        }
+
+        .ana-newsletter button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(96, 165, 250, 0.4);
+        }
+
+        .ana-social-links {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .ana-social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 0.75rem;
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .ana-social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #60a5fa, #3b82f6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .ana-social-link:hover::before {
+            opacity: 1;
+        }
+
+        .ana-social-link:hover {
+            color: white;
+            transform: translateY(-4px) scale(1.1);
+            box-shadow: 0 12px 35px rgba(96, 165, 250, 0.4);
+        }
+
+        .ana-social-link i {
+            position: relative;
+            z-index: 1;
+            font-size: 1.125rem;
+        }
+
+        .ana-footer-bottom {
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .ana-footer-legal {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .ana-footer-legal span {
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+
+        .ana-footer-legal a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s ease;
+        }
+
+        .ana-footer-legal a:hover {
+            color: #60a5fa;
+        }
+
+        .ana-footer-certifications {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .ana-certification {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ana-certification::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .ana-certification:hover::before {
+            left: 100%;
+        }
+
+        .ana-certification:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.2);
+        }
+
+        .ana-certification i {
+            color: #10b981;
+            font-size: 0.875rem;
+        }
+
+        .ana-certification span {
+            color: #e2e8f0;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 1024px) {
+            .ana-footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 2rem;
+            }
+            
+            .ana-footer-about {
+                grid-column: 1 / -1;
+                padding-right: 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ana-footer-container {
+                padding: 0 1rem;
+            }
+            
+            .ana-footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .ana-footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .ana-trust-badges {
+                flex-wrap: wrap;
+            }
+            
+            .ana-newsletter-form {
+                flex-direction: column;
+            }
+        }

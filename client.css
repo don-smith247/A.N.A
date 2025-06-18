@@ -1,0 +1,647 @@
+.ana-portal-wrapper {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: #f8fafc;
+            margin-top: 80px; /* Space for existing header */
+            min-height: calc(100vh - 80px);
+        }
+
+        .ana-client-container {
+            display: flex;
+            min-height: calc(100vh - 80px);
+            background: #f8fafc;
+        }
+
+        /* Sidebar Styles */
+        .ana-client-sidebar {
+            width: 280px;
+            background: linear-gradient(180deg, #1e40af 0%, #1e3a8a 100%);
+            color: white;
+            position: fixed;
+            height: calc(100vh - 80px);
+            top: 80px; /* Position below existing header */
+            overflow-y: auto;
+            z-index: 999;
+            box-shadow: 4px 0 20px rgba(30, 64, 175, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .ana-client-logo {
+            padding: 25px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .ana-client-logo h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 8px 0;
+            background: linear-gradient(135deg, #60a5fa, #93c5fd);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .ana-client-logo p {
+            font-size: 0.85rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+
+        .ana-client-nav {
+            padding: 20px 0;
+        }
+
+        .ana-nav-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            position: relative;
+        }
+
+        .ana-nav-item:hover,
+        .ana-nav-item.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-left-color: #60a5fa;
+        }
+
+        .ana-nav-item.active::before {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #60a5fa;
+        }
+
+        .ana-nav-item i {
+            width: 20px;
+            margin-right: 15px;
+            font-size: 1.1rem;
+        }
+
+        .ana-nav-item span {
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .ana-nav-badge {
+            background: #ef4444;
+            color: white;
+            font-size: 0.75rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: auto;
+        }
+
+        /* Main Content Area */
+        .ana-client-main {
+            flex: 1;
+            margin-left: 280px;
+            background: #f8fafc;
+            min-height: calc(100vh - 80px);
+        }
+
+        .ana-client-header {
+            background: white;
+            padding: 20px 30px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .ana-header-left h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0 0 5px 0;
+        }
+
+        .ana-header-left p {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .ana-header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-left: auto;
+        }
+
+        .ana-notification-btn {
+            position: relative;
+            background: #f1f5f9;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ana-notification-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .ana-notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ef4444;
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ana-user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .ana-user-profile:hover {
+            background: #f1f5f9;
+        }
+
+        .ana-user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .ana-user-info h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        .ana-user-info p {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        /* Dashboard Content */
+        .ana-client-content {
+            padding: 30px;
+        }
+
+        .ana-dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .ana-stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f1f5f9;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ana-stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1e40af, #3b82f6);
+        }
+
+        .ana-stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.15);
+        }
+
+        .ana-stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .ana-stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: white;
+        }
+
+        .ana-stat-icon.portfolio {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+        }
+
+        .ana-stat-icon.growth {
+            background: linear-gradient(135deg, #059669, #10b981);
+        }
+
+        .ana-stat-icon.returns {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+        }
+
+        .ana-stat-icon.balance {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+        }
+
+        .ana-stat-change {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .ana-stat-change.positive {
+            color: #059669;
+        }
+
+        .ana-stat-change.negative {
+            color: #dc2626;
+        }
+
+        .ana-stat-value {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 5px;
+        }
+
+        .ana-stat-label {
+            color: #64748b;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Chart Section */
+        .ana-chart-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .ana-chart-card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f1f5f9;
+        }
+
+        .ana-chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .ana-chart-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        .ana-chart-controls {
+            display: flex;
+            gap: 10px;
+        }
+
+        .ana-chart-btn {
+            padding: 8px 16px;
+            border: 1px solid #e2e8f0;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+        }
+
+        .ana-chart-btn.active,
+        .ana-chart-btn:hover {
+            background: #1e40af;
+            color: white;
+            border-color: #1e40af;
+        }
+
+        #anaPortfolioChart {
+            max-height: 350px;
+        }
+
+        /* Portfolio Breakdown */
+        .ana-portfolio-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .ana-portfolio-item:last-child {
+            border-bottom: none;
+        }
+
+        .ana-portfolio-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        .ana-portfolio-info {
+            flex: 1;
+        }
+
+        .ana-portfolio-name {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 0.9rem;
+            margin: 0 0 2px 0;
+        }
+
+        .ana-portfolio-allocation {
+            color: #64748b;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        .ana-portfolio-value {
+            text-align: right;
+        }
+
+        .ana-portfolio-amount {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 0.9rem;
+            margin: 0 0 2px 0;
+        }
+
+        .ana-portfolio-change {
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        /* Recent Transactions */
+        .ana-transactions-section {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #f1f5f9;
+        }
+
+        .ana-section-header {
+            padding: 25px 25px 0 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ana-section-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin: 0;
+        }
+
+        .ana-view-all-btn {
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .ana-view-all-btn:hover {
+            color: #1e3a8a;
+        }
+
+        .ana-transaction-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 25px;
+            border-bottom: 1px solid #f1f5f9;
+            transition: background 0.3s ease;
+        }
+
+        .ana-transaction-item:hover {
+            background: #f8fafc;
+        }
+
+        .ana-transaction-item:last-child {
+            border-bottom: none;
+        }
+
+        .ana-transaction-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.1rem;
+            color: white;
+        }
+
+        .ana-transaction-icon.buy {
+            background: linear-gradient(135deg, #059669, #10b981);
+        }
+
+        .ana-transaction-icon.sell {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+        }
+
+        .ana-transaction-icon.dividend {
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
+        }
+
+        .ana-transaction-details {
+            flex: 1;
+        }
+
+        .ana-transaction-name {
+            font-weight: 600;
+            color: #1e293b;
+            font-size: 0.95rem;
+            margin: 0 0 3px 0;
+        }
+
+        .ana-transaction-date {
+            color: #64748b;
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        .ana-transaction-amount {
+            text-align: right;
+        }
+
+        .ana-transaction-value {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin: 0 0 3px 0;
+        }
+
+        .ana-transaction-value.positive {
+            color: #059669;
+        }
+
+        .ana-transaction-value.negative {
+            color: #dc2626;
+        }
+
+        .ana-transaction-status {
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-weight: 500;
+        }
+
+        .ana-transaction-status.completed {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .ana-transaction-status.pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        /* Quick Actions */
+        .ana-quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .ana-action-btn {
+            background: white;
+            border: 2px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            color: #1e293b;
+            display: block;
+        }
+
+        .ana-action-btn:hover {
+            border-color: #1e40af;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 64, 175, 0.15);
+            text-decoration: none;
+            color: #1e293b;
+        }
+
+        .ana-action-btn i {
+            font-size: 1.5rem;
+            color: #1e40af;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .ana-action-btn h4 {
+            font-weight: 600;
+            margin: 0 0 5px 0;
+        }
+
+        .ana-action-btn p {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin: 0;
+        }
+
+        /* Mobile Menu Button */
+        .ana-mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #1e40af;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .ana-client-sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+            }
+
+            .ana-client-sidebar.open {
+                transform: translateX(0);
+            }
+
+            .ana-client-main {
+                margin-left: 0;
+            }
+
+            .ana-chart-section {
+                grid-template-columns: 1fr;
+            }
+
+            .ana-dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ana-header-right {
+                gap: 10px;
+            }
+
+            .ana-user-info {
+                display: none;
+            }
+
+            .ana-mobile-menu-btn {
+                display: block;
+            }
+
+            .ana-client-content {
+                padding: 20px 15px;
+            }
+
+            .ana-client-header {
+                padding: 15px 20px;
+            }
+        }

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Portal - A.N.A Investment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        /* Reset and base styles for portal */
+        
+    </style>
+</head>
+<body>
+    <div class="ana-portal-wrapper">
+        <div class="ana-client-container">
+            <!-- Sidebar -->
+            <div class="ana-client-sidebar" id="anaSidebar">
+                <div class="ana-client-logo">
+                    <h2>A.N.A Investment</h2>
+                    <p>Client Portal</p>
+                </div>
+                
+                <nav class="ana-client-nav">
+                    <div class="ana-nav-item active" data-section="dashboard">
+                        <i class="fas fa-chart-pie"></i>
+                        <span>Dashboard</span>
+                    </div>
+                    <div class="ana-nav-item" data-section="portfolio">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Portfolio</span>
+                    </div>
+                    <div class="ana-nav-item" data-section="transactions">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>Transactions</span>
+                    </div>
+                    <div class="ana-nav-item" data-section="investments">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Investments</span>
+                    </div>
+                    <div class="ana-nav-item" data-section="reports">
+                        <i class="fas fa-file-alt"></i>
+                        <span>Reports</span>
+                    </div>
+                    <div class="ana-nav-item" data-section="mentorship">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Mentorship</span>
+                        <span class="ana-nav-badge">New</span>
+                    </div>
+                    <div class="ana-nav-item" data-section="support">
+                        <i class="fas fa-headset"></i>
+                        <span>Support</span>
+                    </div>
+                    <div class="ana-nav-item" data-section="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                </nav>
+            </div>
+
+            <!-- Main Content -->
+            <div class="ana-client-main">
+                <header class="ana-client-header">
+                    <button class="ana-mobile-menu-btn" onclick="toggleAnaSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    
+                    <div class="ana-header-left">
+                        <h1>Welcome back, John!</h1>
+                        <p>Here's your investment overview for today</p>
+                    </div>
+                    
+                    <div class="ana-header-right">
+                        <button class="ana-notification-btn">
+                            <i class="fas fa-bell"></i>
+                            <span class="ana-notification-badge">3</span>
+                        </button>
+                        
+                        <div class="ana-user-profile">
+                            <div class="ana-user-avatar">JD</div>
+                            <div class="ana-user-info">
+                                <h3>John Doe</h3>
+                                <p>Premium Client</p>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <main class="ana-client-content">
+                    <!-- Dashboard Stats -->
+                    <div class="ana-dashboard-grid">
+                        <div class="ana-stat-card">
+                            <div class="ana-stat-header">
+                                <div class="ana-stat-icon portfolio">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <div class="ana-stat-change positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    +12.5%
+                                </div>
+                            </div>
+                            <div class="ana-stat-value">$15,240</div>
+                            <div class="ana-stat-label">Total Portfolio Value</div>
+                        </div>
+
+                        <div class="ana-stat-card">
+                            <div class="ana-stat-header">
+                                <div class="ana-stat-icon growth">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="ana-stat-change positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    +8.2%
+                                </div>
+                            </div>
+                            <div class="ana-stat-value">$1,220</div>
+                            <div class="ana-stat-label">Total Returns</div>
+                        </div>
+
+                        <div class="ana-stat-card">
+                            <div class="ana-stat-header">
+                                <div class="ana-stat-icon returns">
+                                    <i class="fas fa-percentage"></i>
+                                </div>
+                                <div class="ana-stat-change positive">
+                                    <i class="fas fa-arrow-up"></i>
+                                    +2.1%
+                                </div>
+                            </div>
+                            <div class="ana-stat-value">15.8%</div>
+                            <div class="ana-stat-label">Annual Return Rate</div>
+                        </div>
+
+                        <div class="ana-stat-card">
+                            <div class="ana-stat-header">
+                                <div class="ana-stat-icon balance">
+                                    <i class="fas fa-coins"></i>
+                                </div>
+                                <div class="ana-stat-change">
+                                    Available
+                                </div>
+                            </div>
+                            <div class="ana-stat-value">$780</div>
+                            <div class="ana-stat-label">Cash Balance</div>
+                        </div>
+                    </div>
+
+                    <!-- Chart Section -->
+                    <div class="ana-chart-section">
+                        <div class="ana-chart-card">
+                            <div class="ana-chart-header">
+                                <h3 class="ana-chart-title">Portfolio Performance</h3>
+                                <div class="ana-chart-controls">
+                                    <button class="ana-chart-btn active" onclick="updateAnaChart('1M')">1M</button>
+                                    <button class="ana-chart-btn" onclick="updateAnaChart('3M')">3M</button>
+                                    <button class="ana-chart-btn" onclick="updateAnaChart('6M')">6M</button>
+                                    <button class="ana-chart-btn" onclick="updateAnaChart('1Y')">1Y</button>
+                                </div>
+                            </div>
+                            <canvas id="anaPortfolioChart"></canvas>
+                        </div>
+
+                        <div class="ana-chart-card">
+                            <div class="ana-chart-header">
+                                <h3 class="ana-chart-title">Asset Allocation</h3>
+                            </div>
+                            <div id="anaPortfolioBreakdown">
+                                <div class="ana-portfolio-item">
+                                    <div class="ana-portfolio-color" style="background: #1e40af;"></div>
+                                    <div class="ana-portfolio-info">
+                                        <div class="ana-portfolio-name">US Stocks</div>
+                                        <div class="ana-portfolio-allocation">45% allocation</div>
+                                    </div>
+                                    <div class="ana-portfolio-value">
+                                        <div class="ana-portfolio-amount">$6,858</div>
+                                        <div class="ana-portfolio-change positive">+5.2%</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="ana-portfolio-item">
+                                    <div class="ana-portfolio-color" style="background: #059669;"></div>
+                                    <div class="ana-portfolio-info">
+                                        <div class="ana-portfolio-name">Bonds</div>
+                                        <div class="ana-portfolio-allocation">25% allocation</div>
+                                    </div>
+                                    <div class="ana-portfolio-value">
+                                        <div class="ana-portfolio-amount">$3,810</div>
+                                        <div class="ana-portfolio-change positive">+3.1%</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="ana-portfolio-item">
+                                    <div class="ana-portfolio-color" style="background: #dc2626;"></div>
+                                    <div class="ana-portfolio-info">
+                                        <div class="ana-portfolio-name">International Funds</div>
+                                        <div class="ana-portfolio-allocation">20% allocation</div>
+                                    </div>
+                                    <div class="ana-portfolio-value">
+                                        <div class="ana-portfolio-amount">$3,048</div>
+                                        <div class="ana-portfolio-change positive">+7.8%</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="ana-portfolio-item">
+                                    <div class="ana-portfolio-color" style="background: #7c3aed;"></div>
+                                    <div class="ana-portfolio-info">
+                                        <div class="ana-portfolio-name">Real Estate</div>
+                                        <div class="ana-portfolio-allocation">10% allocation</div>
+                                    </div>
+                                    <div class="ana-portfolio-value">
+                                        <div class="ana-portfolio-amount">$1,524</div>
+                                        <div class="ana-portfolio-change positive">+2.4%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Transactions -->
+                    <div class="ana-transactions-section">
+                        <div class="ana-section-header">
+                            <h3 class="ana-section-title">Recent Transactions</h3>
+                            <a href="#" class="ana-view-all-btn">View All</a>
+                        </div>
+                        
+                        <div class="ana-transaction-item">
+                            <div class="ana-transaction-icon buy">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="ana-transaction-details">
+                                <div class="ana-transaction-name">Apple Inc. Purchase</div>
+                                <div class="ana-transaction-date">Today, 2:30 PM</div>
+                            </div>
+                            <div class="ana-transaction-amount">
+                                <div class="ana-transaction-value positive">+$935</div>
+                                <div class="ana-transaction-status completed">Completed</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ana-transaction-item">
+                            <div class="ana-transaction-icon dividend">
+                                <i class="fas fa-gift"></i>
+                            </div>
+                            <div class="ana-transaction-details">
+                                <div class="ana-transaction-name">Dividend Payment - MSFT</div>
+                                <div class="ana-transaction-date">Yesterday, 10:15 AM</div>
+                            </div>
+                            <div class="ana-transaction-amount">
+                                <div class="ana-transaction-value positive">+$158</div>
+                                <div class="ana-transaction-status completed">Completed</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ana-transaction-item">
+                            <div class="ana-transaction-icon sell">
+                                <i class="fas fa-arrow-down"></i>
+                            </div>
+                            <div class="ana-transaction-details">
+                                <div class="ana-transaction-name">Tesla Stock Sale</div>
+                                <div class="ana-transaction-date">2 days ago, 3:45 PM</div>
+                            </div>
+                            <div class="ana-transaction-amount">
+                                <div class="ana-transaction-value negative">-$1,240</div>
+                                <div class="ana-transaction-status completed">Completed</div>
+                            </div>
+                        </div>
+                        
+                        <div class="ana-transaction-item">
+                            <div class="ana-transaction-icon buy">
+                                <i class="fas fa-arrow-up"></i>
+                            </div>
+                            <div class="ana-transaction-details">
+                                <div class="ana-transaction-name">Bond Fund Investment</div>
+                                <div class="ana-transaction-date">3 days ago, 11:20 AM</div>
+                            </div>
+                            <div class="ana-transaction-amount">
+                                <div class="ana-transaction-value positive">+$500</div>
+                                <div class="ana-transaction-status pending">Processing</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="ana-quick-actions">
+                        <a href="#" class="ana-action-btn">
+                            <i class="fas fa-plus-circle"></i>
+                            <h4>Make Investment</h4>
+                            <p>Add funds to your portfolio</p>
+                        </a>
+                        
+                        <a href="#" class="ana-action-btn">
+                            <i class="fas fa-download"></i>
+                            <h4>Download Report</h4>
+                            <p>Get your monthly statement</p>
+                        </a>
+                        
+                        <a href="#" class="ana-action-btn">
+                            <i class="fas fa-calendar-alt"></i>
+                            <h4>Schedule Meeting</h4>
+                            <p>Book consultation with advisor</p>
+                        </a>
+                        
+                        <a href="#" class="ana-action-btn">
+                            <i class="fas fa-question-circle"></i>
+                            <h4>Get Support</h4>
+                            <p>Contact our support team</p>
+                        </a>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Chart initialization
+        let anaPortfolioChart;
+        
+        function initializeAnaChart() {
+            const ctx = document.getElementById('anaPortfolioChart').getContext('2d');
+            
+            const chartData = {
+                '1M': {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    data: [14800, 15100, 14950, 15240]
+                },
+                '3M': {
+                    labels: ['Month 1', 'Month 2', 'Month 3'],
+                    data: [13500, 14200, 15240]
+                },
+                '6M': {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    data: [12800, 13200, 13500, 14200, 14800, 15240]
+                },
+                '1Y': {
+                    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+                    data: [11500, 13200, 14500, 15240]
+                }
+            };
+            
+            anaPortfolioChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: chartData['1M'].labels,
+                    datasets: [{
+                        label: 'Portfolio Value',
+                        data: chartData['1M'].data,
+                        borderColor: '#1e40af',
+                        backgroundColor: 'rgba(30, 64, 175, 0.1)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4,
+                        pointBackgroundColor: '#1e40af',
+                        pointBorderColor: '#ffffff',
+                        pointBorderWidth: 3,
+                        pointRadius: 6,
+                        pointHoverRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(30, 64, 175, 0.9)',
+                            titleColor: '#ffffff',
+                            bodyColor: '#ffffff',
+                            borderColor: '#1e40af',
+                            borderWidth: 1,
+                            cornerRadius: 8,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return '$' + context.parsed.y.toLocaleString();
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)',
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: '#64748b',
+                                callback: function(value) {
+                                    return '$' + (value / 1000) + 'k';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            },
+                            ticks: {
+                                color: '#64748b'
+                            }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    }
+                }
+            });
+            
+            // Store chart data for updates
+            window.anaChartData = chartData;
+        }
+        
+        function updateAnaChart(period) {
+            // Remove active class from all buttons
+            document.querySelectorAll('.ana-chart-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Update chart data
+            const newData = window.anaChartData[period];
+            anaPortfolioChart.data.labels = newData.labels;
+            anaPortfolioChart.data.datasets[0].data = newData.data;
+            anaPortfolioChart.update('active');
+        }
+        
+        // Sidebar navigation
+        function initializeAnaNavigation() {
+            const navItems = document.querySelectorAll('.ana-nav-item');
+            
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all items
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                    
+                    // Update header based on section
+                    const section = this.dataset.section;
+                    updateAnaHeader(section);
+                });
+            });
+        }
+        
+        function updateAnaHeader(section) {
+            const headerTitle = document.querySelector('.ana-header-left h1');
+            const headerSubtitle = document.querySelector('.ana-header-left p');
+            
+            const sectionTitles = {
+                dashboard: {
+                    title: 'Welcome back, John!',
+                    subtitle: "Here's your investment overview for today"
+                },
+                portfolio: {
+                    title: 'Portfolio Overview',
+                    subtitle: 'Manage and track your investments'
+                },
+                transactions: {
+                    title: 'Transaction History',
+                    subtitle: 'View all your investment activities'
+                },
+                investments: {
+                    title: 'Investment Opportunities',
+                    subtitle: 'Discover new investment options'
+                },
+                reports: {
+                    title: 'Financial Reports',
+                    subtitle: 'Access your detailed financial statements'
+                },
+                mentorship: {
+                    title: 'Investment Mentorship',
+                    subtitle: 'Learn from our expert advisors'
+                },
+                support: {
+                    title: 'Customer Support',
+                    subtitle: 'Get help with your account'
+                },
+                settings: {
+                    title: 'Account Settings',
+                    subtitle: 'Manage your profile and preferences'
+                }
+            };
+            
+            if (sectionTitles[section]) {
+                headerTitle.textContent = sectionTitles[section].title;
+                headerSubtitle.textContent = sectionTitles[section].subtitle;
+            }
+        }
+        
+        // Mobile sidebar toggle
+        function toggleAnaSidebar() {
+            const sidebar = document.getElementById('anaSidebar');
+            sidebar.classList.toggle('open');
+        }
+        
+        // Notification system
+        function initializeAnaNotifications() {
+            const notificationBtn = document.querySelector('.ana-notification-btn');
+            
+            notificationBtn.addEventListener('click', function() {
+                // Simple notification popup
+                alert('Notifications:\n• Portfolio gained 2.3% today\n• Dividend payment received\n• Monthly report is ready');
+            });
+        }
+        
+        // Stats animation
+        function animateAnaStats() {
+            const statValues = document.querySelectorAll('.ana-stat-value');
+            
+            statValues.forEach(stat => {
+                const finalValue = stat.textContent;
+                const isPercentage = finalValue.includes('%');
+                const isDollar = finalValue.includes('$');
+                
+                let numericValue = parseFloat(finalValue.replace(/[$,%]/g, ''));
+                let currentValue = 0;
+                const increment = numericValue / 50;
+                
+                const timer = setInterval(() => {
+                    currentValue += increment;
+                    
+                    if (currentValue >= numericValue) {
+                        currentValue = numericValue;
+                        clearInterval(timer);
+                    }
+                    
+                    let displayValue = Math.floor(currentValue);
+                    
+                    if (isDollar) {
+                        stat.textContent = '$' + displayValue.toLocaleString();
+                    } else if (isPercentage) {
+                        stat.textContent = displayValue.toFixed(1) + '%';
+                    } else {
+                        stat.textContent = displayValue.toLocaleString();
+                    }
+                }, 20);
+            });
+        }
+        
+        // Initialize everything when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeAnaChart();
+            initializeAnaNavigation();
+            initializeAnaNotifications();
+            
+            // Animate stats after a short delay
+            setTimeout(animateAnaStats, 500);
+            
+            // Close mobile sidebar when clicking outside
+            document.addEventListener('click', function(e) {
+                const sidebar = document.getElementById('anaSidebar');
+                const menuBtn = document.querySelector('.ana-mobile-menu-btn');
+                
+                if (!sidebar.contains(e.target) && !menuBtn.contains(e.target)) {
+                    sidebar.classList.remove('open');
+                }
+            });
+        });
+        
+        // Handle window resize
+        window.addEventListener('resize', function() {
+            if (anaPortfolioChart) {
+                anaPortfolioChart.resize();
+            }
+        });
+    </script>
+</body>
+</html>
