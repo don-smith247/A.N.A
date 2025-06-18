@@ -3,6 +3,390 @@
             padding: 0;
             box-sizing: border-box;
         }
+        .investment-bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .financial-particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: drift 6s ease-in-out infinite;
+        }
+
+        .financial-particle:nth-child(1) { width: 80px; height: 80px; left: 10%; animation-delay: 0s; }
+        .financial-particle:nth-child(2) { width: 120px; height: 120px; left: 20%; animation-delay: 2s; }
+        .financial-particle:nth-child(3) { width: 60px; height: 60px; left: 70%; animation-delay: 4s; }
+        .financial-particle:nth-child(4) { width: 100px; height: 100px; left: 80%; animation-delay: 1s; }
+        .financial-particle:nth-child(5) { width: 140px; height: 140px; left: 60%; animation-delay: 3s; }
+
+        @keyframes drift {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+
+        /* Modal overlay */
+        .investment-modal-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            animation: modalFadeIn 0.5s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* Main modal container */
+        .premium-investment-modal {
+            position: relative;
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 0, 0, 0.4),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            animation: modalSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+
+        @keyframes modalSlideIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px) scale(0.95); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+
+        .premium-investment-modal::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: topShimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes topShimmer {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        /* Close button */
+        .modal-close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .modal-close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg) scale(1.1);
+            color: white;
+        }
+
+        /* Header section */
+        .investment-modal-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .company-logo-circle {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: logoPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(118, 75, 162, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(118, 75, 162, 0); }
+        }
+
+        .company-logo-circle i {
+            font-size: 36px;
+            color: white;
+        }
+
+        .investment-company-title {
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ffffff, #e0e0e0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+
+        .company-tagline {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Stats section */
+        .investment-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .metric-display-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-display-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .metric-display-card:hover::before {
+            left: 100%;
+        }
+
+        .metric-display-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .metric-value {
+            font-size: 28px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .metric-description {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Action section */
+        .investment-cta-section {
+            margin-top: 30px;
+        }
+
+        .investment-value-prop {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .cta-button-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .premium-cta-btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .primary-investment-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 10px 20px rgba(118, 75, 162, 0.3);
+        }
+
+        .primary-investment-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(118, 75, 162, 0.4);
+        }
+
+        .secondary-info-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .secondary-info-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .premium-cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .premium-cta-btn:hover::before {
+            left: 100%;
+        }
+
+        /* Floating elements */
+        .decorative-float-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: decorativeFloat 4s ease-in-out infinite;
+        }
+
+        .float-decoration-1 {
+            width: 20px;
+            height: 20px;
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .float-decoration-2 {
+            width: 15px;
+            height: 15px;
+            top: 70%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .float-decoration-3 {
+            width: 25px;
+            height: 25px;
+            bottom: 20%;
+            left: 20%;
+            animation-delay: 1s;
+        }
+
+        @keyframes decorativeFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .premium-investment-modal {
+                padding: 30px 20px;
+                margin: 20px;
+            }
+
+            .investment-company-title {
+                font-size: 26px;
+            }
+
+            .company-tagline {
+                font-size: 16px;
+            }
+
+            .investment-metrics {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .cta-button-group {
+                flex-direction: column;
+            }
+
+            .premium-cta-btn {
+                min-width: auto;
+            }
+        }
+
+        /* Demo button to show modal */
+        .investment-demo-trigger {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(118, 75, 162, 0.3);
+            transition: all 0.3s ease;
+            z-index: 9998;
+        }
+
+        .investment-demo-trigger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(118, 75, 162, 0.4);
+        }
+
+        .visibility-hidden {
+            display: none;
+        }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -2155,7 +2539,7 @@
             color: #e2e8f0;
             position: relative;
             overflow: hidden;
-            border-radius: 2rem;
+            /* border-radius: 2rem; */
             box-shadow: 
                 0 32px 64px -12px rgba(29, 78, 216, 0.4),
                 0 20px 25px -5px rgba(29, 78, 216, 0.2),

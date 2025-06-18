@@ -240,3 +240,32 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             });
         });
+
+
+
+        function displayInvestmentModal() {
+            document.getElementById('investmentModalBackdrop').classList.remove('visibility-hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInvestmentModal() {
+            document.getElementById('investmentModalBackdrop').classList.add('visibility-hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('investmentModalBackdrop').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeInvestmentModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeInvestmentModal();
+            }
+        });
+
+        // Auto-show modal after 2 seconds (for demo)
+        setTimeout(displayInvestmentModal, 2000);

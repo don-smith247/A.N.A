@@ -9,6 +9,71 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Background Animation -->
+    <div class="investment-bg-animation">
+        <div class="financial-particle"></div>
+        <div class="financial-particle"></div>
+        <div class="financial-particle"></div>
+        <div class="financial-particle"></div>
+        <div class="financial-particle"></div>
+    </div>
+
+    <!-- Demo Button -->
+    <button class="investment-demo-trigger" onclick="displayInvestmentModal()">
+        <i class="fas fa-chart-line"></i> Show Modal
+    </button>
+
+    <!-- Modal Overlay -->
+    <div class="investment-modal-backdrop" id="investmentModalBackdrop">
+        <div class="premium-investment-modal">
+            <!-- Floating Elements -->
+            <div class="decorative-float-element float-decoration-1"></div>
+            <div class="decorative-float-element float-decoration-2"></div>
+            <div class="decorative-float-element float-decoration-3"></div>
+
+            <!-- Close Button -->
+            <button class="modal-close-btn" onclick="closeInvestmentModal()">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Header -->
+            <div class="investment-modal-header">
+                <div class="company-logo-circle">
+                    <i class="fas fa-building"></i>
+                </div>
+                <h1 class="investment-company-title">A.N.A Investment</h1>
+                <p class="company-tagline">Building Financial Futures Since Day One</p>
+            </div>
+
+            <!-- Stats -->
+            <div class="investment-metrics">
+                <div class="metric-display-card">
+                    <span class="metric-value">100+</span>
+                    <span class="metric-description">Happy Clients</span>
+                </div>
+                <div class="metric-display-card">
+                    <span class="metric-value">$500K+</span>
+                    <span class="metric-description">Assets Managed</span>
+                </div>
+            </div>
+
+            <!-- Action Section -->
+            <div class="investment-cta-section">
+                <p class="investment-value-prop">
+                    Discover exclusive investment opportunities designed for sophisticated investors. Join our elite community and unlock premium financial strategies.
+                </p>
+
+                <div class="cta-button-group">
+                    <button class="premium-cta-btn primary-investment-btn">
+                        <a style="text-decoration: none; color: white;" href="./contactus.html"><i class="fas fa-rocket"></i> Start Investing</a>
+                    </button>
+                    <button class="premium-cta-btn secondary-info-btn">
+                        <a style="text-decoration: none; color: white;" href="./resource.html"><i class="fas fa-info-circle"></i> Learn More</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <header class="header" id="header">
         <div class="nav-container">
             <a href="#" class="logo">
@@ -35,7 +100,7 @@
 
             <div class="nav-actions">
                 <a href="./contactus.html" class="btn btn-outline">Contact Us</a>
-                <a href="./client.html" class="btn btn-primary">Client Portal</a>
+                <!-- <a href="./client.html" class="btn btn-primary">Client Portal</a> -->
             </div>
 
             <div class="mobile-toggle" id="mobile-toggle">
@@ -56,7 +121,7 @@
                 
                 <div class="mobile-actions">
                     <a href="./contactus.html" class="btn btn-outline">Contact Us</a>
-                    <a href="./client.html" class="btn btn-primary">Client Portal</a>
+                    <!-- <a href="./client.html" class="btn btn-primary">Client Portal</a> -->
                 </div>
             </nav>
         </div>
@@ -178,11 +243,11 @@
 
                     <div class="ana-about-stats">
                         <div class="ana-stat-card">
-                            <div class="ana-stat-number">500+</div>
+                            <div class="ana-stat-number">100+</div>
                             <div class="ana-stat-label">Happy Clients</div>
                         </div>
                         <div class="ana-stat-card">
-                            <div class="ana-stat-number">$50M+</div>
+                            <div class="ana-stat-number">$500k+</div>
                             <div class="ana-stat-label">Assets Managed</div>
                         </div>
                     </div>
@@ -265,7 +330,7 @@
             <div class="ana-team-grid">
                 <div class="ana-team-card">
                     <div class="ana-team-image-container">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                        <img src="./muslim.jpg" 
                              alt="Sarah Johnson" 
                              class="ana-team-image">
                         <div class="ana-team-overlay"></div>
@@ -279,10 +344,10 @@
                         </div>
                     </div>
                     <div class="ana-team-info">
-                        <h3 class="ana-team-name">Sarah Johnson</h3>
-                        <p class="ana-team-position">Senior Portfolio Manager</p>
+                        <h3 class="ana-team-name" style="text-transform: capitalize;">SADIQ MUHAMMAD</h3>
+                        <p class="ana-team-position">TECHNICAL ANALYST</p>
                         <p class="ana-team-bio">
-                            With over 12 years in investment management, Sarah specializes in developing custom portfolio strategies that align with our clients' risk tolerance and financial goals.
+                            With over 5 years in investment management, Sarah specializes in developing custom portfolio strategies that align with our clients' risk tolerance and financial goals.
                         </p>
                         <div class="ana-team-expertise">
                             <span class="ana-team-skill">Portfolio Management</span>
@@ -294,7 +359,7 @@
 
                 <div class="ana-team-card">
                     <div class="ana-team-image-container">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                        <img src="./sec.jpg" 
                              alt="Michael Chen" 
                              class="ana-team-image">
                         <div class="ana-team-overlay"></div>
@@ -307,24 +372,24 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ana-team-info">
-                        <h3 class="ana-team-name">Michael Chen</h3>
-                        <p class="ana-team-position">Chief Investment Officer</p>
-                        <p class="ana-team-bio">
-                            Michael leads our investment strategy team, bringing 15+ years of experience in global markets and quantitative analysis to drive superior investment performance.
-                        </p>
-                        <div class="ana-team-expertise">
-                            <span class="ana-team-skill">Investment Strategy</span>
-                            <span class="ana-team-skill">Market Analysis</span>
-                            <span class="ana-team-skill">Quantitative Research</span>
-                        </div>
-                    </div>
+                    <div class="ana-team-info">                         
+                      <h3 class="ana-team-name">Umukoro Marvellous</h3>                         
+                      <p class="ana-team-position">SECRETARY</p>                         
+                      <p class="ana-team-bio">                             
+                         Umukoro Marvellous serves as our dedicated Secretary, bringing exceptional organizational skills and attention to detail to ensure smooth operations across all departments.                         
+                      </p>                         
+                      <div class="ana-team-expertise">                             
+                       <span class="ana-team-skill">Administrative Coordination</span>                             
+                      <span class="ana-team-skill">Communication Management</span>                             
+                      <span class="ana-team-skill">Document Organization</span>                         
+    </div>                     
+</div>
                 </div>
 
                 
                 <div class="ana-team-card">
                     <div class="ana-team-image-container">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                        <img src="./senior.jpg" 
                              alt="David Thompson" 
                              class="ana-team-image">
                         <div class="ana-team-overlay"></div>
@@ -337,18 +402,18 @@
                             </a>
                         </div>
                     </div>
-                    <div class="ana-team-info">
-                        <h3 class="ana-team-name">David Thompson</h3>
-                        <p class="ana-team-position">Head of Technology</p>
-                        <p class="ana-team-bio">
-                            David oversees our technology infrastructure and digital platforms, ensuring our clients have access to cutting-edge tools and secure, reliable systems.
-                        </p>
-                        <div class="ana-team-expertise">
-                            <span class="ana-team-skill">Fintech Development</span>
-                            <span class="ana-team-skill">Data Analytics</span>
-                            <span class="ana-team-skill">Cybersecurity</span>
-                        </div>
-                    </div>
+                    <div class="ana-team-info">                         
+    <h3 class="ana-team-name">Enakireru Emmanuel</h3>                         
+    <p class="ana-team-position">SENIOR PORTFOLIO MANAGER</p>                         
+    <p class="ana-team-bio">                             
+        Enakireru Emmanuel serves as our Senior Portfolio Manager, bringing extensive experience in investment management and client portfolio optimization. 
+    </p>                         
+    <div class="ana-team-expertise">                             
+        <span class="ana-team-skill">Portfolio Management</span>                             
+        <span class="ana-team-skill">Investment Strategy</span>                             
+        <span class="ana-team-skill">Client Relations</span>                         
+    </div>                     
+</div>
                 </div>
             </div>
 
@@ -357,12 +422,12 @@
                 
                 <div class="ana-leadership-card">
                     <div class="ana-leadership-content">
-                        <img src="https://images.unsplash.com/photo-1556157382-97eda2d62296?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                        <img src="./ceo.jpg" 
                              alt="Alex Nigerian" 
                              class="ana-leadership-image">
                         
                         <div class="ana-leadership-text">
-                            <h4 class="ana-leadership-name">Alex Nigerian</h4>
+                            <h4 class="ana-leadership-name">NURUDEEN ABUBAKAR ZAGI</h4>
                             <p class="ana-leadership-role">Chief Executive Officer & Founder</p>
                             <p class="ana-leadership-bio">
                                 "At A.N.A Investment, we believe that financial success should be accessible to everyone. Our team is committed to democratizing investment opportunities while maintaining the highest standards of professionalism and integrity. Together, we're building a future where every client can achieve their financial dreams through innovative solutions and personalized service."
@@ -512,15 +577,15 @@
 
             <div class="ana-floating-stats">
                 <div class="ana-stat-card">
-                    <span class="ana-stat-number">$15B+</span>
+                    <span class="ana-stat-number">$500k+</span>
                     <span class="ana-stat-label">Assets Under Management</span>
                 </div>
                 <div class="ana-stat-card">
-                    <span class="ana-stat-number">500+</span>
+                    <span class="ana-stat-number">100+</span>
                     <span class="ana-stat-label">Institutional Clients</span>
                 </div>
                 <div class="ana-stat-card">
-                    <span class="ana-stat-number">99.7%</span>
+                    <span class="ana-stat-number">90.7%</span>
                     <span class="ana-stat-label">Uptime Guarantee</span>
                 </div>
                 <div class="ana-stat-card">
@@ -592,21 +657,21 @@
                                 <i class="fas fa-map-marker-alt"></i>
                                 <div>
                                     <strong>Headquarters</strong>
-                                    <span>Lagos, Nigeria<br>Victoria Island Financial District</span>
+                                    <span>Abuja Nigeria, GRAND HUBB, 1st Avenue, Gwarinpa.</span>
                                 </div>
                             </div>
                             <div class="ana-contact-item">
                                 <i class="fas fa-phone"></i>
                                 <div>
                                     <strong>Phone</strong>
-                                    <span>+234 (0) 1 234 5678</span>
+                                    <span>+2348106103508</span>
                                 </div>
                             </div>
                             <div class="ana-contact-item">
                                 <i class="fas fa-envelope"></i>
                                 <div>
                                     <strong>Email</strong>
-                                    <span>invest@ana-investment.com</span>
+                                    <span>anazagi.investments@gmail.com</span>
                                 </div>
                             </div>
                             <div class="ana-contact-item">

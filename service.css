@@ -294,6 +294,7 @@
         }
 
         .services-hero {
+            padding-top: 100px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
@@ -804,7 +805,7 @@
             color: #e2e8f0;
             position: relative;
             overflow: hidden;
-            border-radius: 2rem;
+            /* border-radius: 2rem; */
             box-shadow: 
                 0 32px 64px -12px rgba(29, 78, 216, 0.4),
                 0 20px 25px -5px rgba(29, 78, 216, 0.2),

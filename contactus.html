@@ -34,7 +34,7 @@
 
             <div class="nav-actions">
                 <a href="./contactus.html" class="btn btn-outline">Contact Us</a>
-                <a href="./client.html" class="btn btn-primary">Client Portal</a>
+                <!-- <a href="./client.html" class="btn btn-primary">Client Portal</a> -->
             </div>
 
             <div class="mobile-toggle" id="mobile-toggle">
@@ -55,7 +55,7 @@
                 
                 <div class="mobile-actions">
                     <a href="#contact" class="btn btn-outline">Contact Us</a>
-                    <a href="#portal" class="btn btn-primary">Client Portal</a>
+                    <!-- <a href="#portal" class="btn btn-primary">Client Portal</a> -->
                 </div>
             </nav>
         </div>
@@ -128,77 +128,102 @@
                 </div>
 
                 <div class="ana-contact-form-container">
-                    <form class="ana-contact-form" id="contactForm">
-                        <h3>
-                            <i class="fas fa-paper-plane"></i>
-                            Send Us a Message
-                        </h3>
-                        
-                        <div class="ana-form-group">
-                            <label class="ana-form-label">Full Name *</label>
-                            <input type="text" class="ana-form-input" name="name" required placeholder="Enter your full name">
+    <form class="ana-contact-form" id="contactForm" action="https://formspree.io/f/mzzgvovk" method="POST">
+        <!-- Hidden field to help with debugging -->
+        <input type="hidden" name="_subject" value="New Contact Form Submission">
+        <input type="hidden" name="_next" value="https://formspree.io/thanks">
+        <h3>
+            <i class="fas fa-paper-plane"></i>
+            Send Us a Message
+        </h3>
+        
+        <div class="ana-form-group">
+            <label class="ana-form-label">Full Name *</label>
+            <input type="text" class="ana-form-input" name="name" required placeholder="Enter your full name">
+        </div>
+        
+        <div class="ana-form-group">
+            <label class="ana-form-label">Email Address *</label>
+            <input type="email" class="ana-form-input" name="email" required placeholder="your.email@example.com">
+        </div>
+        
+        <div class="ana-form-group">
+            <label class="ana-form-label">Phone Number *</label>
+            <input type="tel" class="ana-form-input" name="phone" required placeholder="+234 xxx xxx xxxx">
+        </div>
+        
+        <div class="ana-form-group">
+            <label class="ana-form-label">Service Interest *</label>
+            <div class="ana-service-selection">
+                <div class="ana-service-option">
+                    <input type="radio" class="ana-service-radio" name="service" value="investment" id="investment" required>
+                    <label for="investment" class="ana-service-card">
+                        <div class="ana-service-icon">
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        
-                        <div class="ana-form-group">
-                            <label class="ana-form-label">Email Address *</label>
-                            <input type="email" class="ana-form-input" name="email" required placeholder="your.email@example.com">
-                        </div>
-                        
-                        <div class="ana-form-group">
-                            <label class="ana-form-label">Phone Number *</label>
-                            <input type="tel" class="ana-form-input" name="phone" required placeholder="+234 xxx xxx xxxx">
-                        </div>
-                        
-                        <div class="ana-form-group">
-                            <label class="ana-form-label">Service Interest *</label>
-                            <div class="ana-service-selection">
-                                <div class="ana-service-option">
-                                    <input type="radio" class="ana-service-radio" name="service" value="investment" id="investment" required>
-                                    <label for="investment" class="ana-service-card">
-                                        <div class="ana-service-icon">
-                                            <i class="fas fa-chart-line"></i>
-                                        </div>
-                                        <h4>Investment Services</h4>
-                                        <p>Portfolio management & growth strategies</p>
-                                    </label>
-                                </div>
-                                
-                                <div class="ana-service-option">
-                                    <input type="radio" class="ana-service-radio" name="service" value="mentorship" id="mentorship" required>
-                                    <label for="mentorship" class="ana-service-card">
-                                        <div class="ana-service-icon">
-                                            <i class="fas fa-graduation-cap"></i>
-                                        </div>
-                                        <h4>Mentorship Program</h4>
-                                        <p>Personal financial education & guidance</p>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="ana-form-group">
-                            <label class="ana-form-label">Investment Range (Optional)</label>
-                            <select class="ana-form-select" name="investment_range">
-                                <option value="">Select investment range</option>
-                                <option value="under-100k">Under ₦100,000</option>
-                                <option value="100k-500k">₦100,000 - ₦500,000</option>
-                                <option value="500k-1m">₦500,000 - ₦1,000,000</option>
-                                <option value="1m-5m">₦1,000,000 - ₦5,000,000</option>
-                                <option value="above-5m">Above ₦5,000,000</option>
-                            </select>
-                        </div>
-                        
-                        <div class="ana-form-group">
-                            <label class="ana-form-label">Message *</label>
-                            <textarea class="ana-form-textarea" name="message" required placeholder="Tell us about your financial goals and how we can help you achieve them..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="ana-submit-btn">
-                            <i class="fas fa-rocket"></i>
-                            Send Message & Start Your Journey
-                        </button>
-                    </form>
+                        <h4>Investment Services</h4>
+                        <p>Portfolio management & growth strategies</p>
+                    </label>
                 </div>
+                
+                <div class="ana-service-option">
+                    <input type="radio" class="ana-service-radio" name="service" value="mentorship" id="mentorship" required>
+                    <label for="mentorship" class="ana-service-card">
+                        <div class="ana-service-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Mentorship Program</h4>
+                        <p>Personal financial education & guidance</p>
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ana-form-group">
+            <label class="ana-form-label">Investment Range (Optional)</label>
+            <select class="ana-form-select" name="investment_range">
+                <option value="">Select investment range</option>
+                <option value="under-100k">Under ₦100,000</option>
+                <option value="100k-500k">₦100,000 - ₦500,000</option>
+                <option value="500k-1m">₦500,000 - ₦1,000,000</option>
+                <option value="1m-5m">₦1,000,000 - ₦5,000,000</option>
+                <option value="above-5m">Above ₦5,000,000</option>
+            </select>
+        </div>
+        
+        <div class="ana-form-group">
+            <label class="ana-form-label">Message *</label>
+            <textarea class="ana-form-textarea" name="message" required placeholder="Tell us about your financial goals and how we can help you achieve them..."></textarea>
+        </div>
+        
+        <button type="submit" class="ana-submit-btn" id="submitBtn">
+            <i class="fas fa-rocket"></i>
+            <span id="btnText">Send Message & Start Your Journey</span>
+        </button>
+    </form>
+</div>
+
+
+
+<style>
+.ana-submit-btn {
+    transition: background-color 0.3s ease;
+}
+
+.ana-submit-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
             </div>
 
             <div class="ana-stats-banner">
@@ -219,73 +244,116 @@
     </section>
 
     <script>
-        function scrollToForm() {
-            document.querySelector('.ana-contact-form-container').scrollIntoView({
-                behavior: 'smooth'
-            });
+function scrollToForm() {
+    document.querySelector('.ana-contact-form-container').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+function openWhatsApp() {
+    const message = encodeURIComponent("Hello! I'm interested in learning more about A.N.A Investment services. Could you please provide more information?");
+    const whatsappNumber = "+2348106103508"; // Replace with actual WhatsApp number
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+}
+
+// Enhanced form submission with Formspree integration
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const icon = submitBtn.querySelector('i');
+    
+    // Change to submitting state immediately
+    submitBtn.disabled = true;
+    icon.className = 'fas fa-spinner fa-spin';
+    btnText.textContent = 'Submitting...';
+    
+    const formData = new FormData(this);
+    const service = formData.get('service');
+    const name = formData.get('name');
+    const message = formData.get('message');
+    const phone = formData.get('phone');
+    const investmentRange = formData.get('investment_range');
+    
+    // Submit to Formspree
+    fetch('https://formspree.io/f/mzzgvovk', {
+        method: 'POST',
+        body: formData,
+        headers: {
+            'Accept': 'application/json'
         }
-
-        function openWhatsApp() {
-            const message = encodeURIComponent("Hello! I'm interested in learning more about A.N.A Investment services. Could you please provide more information?");
-            const whatsappNumber = "2348000000000"; // Replace with actual WhatsApp number
-            window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
-        }
-
-        // Enhanced form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const service = formData.get('service');
-            const name = formData.get('name');
-            const message = formData.get('message');
-            const phone = formData.get('phone');
-            const investmentRange = formData.get('investment_range');
-            
-            // Create WhatsApp message
-            let whatsappMessage = `Hello! I'm ${name} and I'm interested in ${service === 'investment' ? 'Investment Services' : 'Mentorship Program'}.\n\n`;
-            whatsappMessage += `Phone: ${phone}\n`;
-            if (investmentRange) {
-                whatsappMessage += `Investment Range: ${investmentRange}\n`;
-            }
-            whatsappMessage += `\nMessage: ${message}`;
-            
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            const whatsappNumber = "2348000000000"; // Replace with actual WhatsApp number
-            
-            // Show success message
-            alert('Thank you for your interest! Redirecting you to WhatsApp to complete your inquiry.');
-            
-            // Open WhatsApp
-            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
-            
-            // Reset form
-            this.reset();
-        });
-
-        // Add smooth animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+    }).then(response => {
+        if (response.ok) {
+            // After 3 seconds, show submitted state
+            setTimeout(() => {
+                icon.className = 'fas fa-check';
+                btnText.textContent = 'Submitted!';
+                submitBtn.style.backgroundColor = '#28a745';
+                
+                // Create WhatsApp message
+                let whatsappMessage = `Hello! I'm ${name} and I'm interested in ${service === 'investment' ? 'Investment Services' : 'Mentorship Program'}.\n\n`;
+                whatsappMessage += `Phone: ${phone}\n`;
+                if (investmentRange) {
+                    whatsappMessage += `Investment Range: ${investmentRange}\n`;
                 }
-            });
-        }, observerOptions);
+                whatsappMessage += `\nMessage: ${message}`;
+                
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                const whatsappNumber = "2348106103508"; // Using your WhatsApp number
+                
+                // Show success message and redirect to WhatsApp after another 2 seconds
+                setTimeout(() => {
+                    alert('Thank you! Your message has been sent. Redirecting you to WhatsApp for immediate assistance.');
+                    window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+                    
+                    // Reset form and button
+                    this.reset();
+                    submitBtn.disabled = false;
+                    icon.className = 'fas fa-rocket';
+                    btnText.textContent = 'Send Message & Start Your Journey';
+                    submitBtn.style.backgroundColor = '';
+                }, 2000);
+            }, 3000);
+        } else {
+            // Handle error
+            icon.className = 'fas fa-exclamation-triangle';
+            btnText.textContent = 'Error - Try Again';
+            submitBtn.style.backgroundColor = '#dc3545';
+            submitBtn.disabled = false;
+        }
+    }).catch(error => {
+        console.error('Error:', error);
+        icon.className = 'fas fa-exclamation-triangle';
+        btnText.textContent = 'Error - Try Again';
+        submitBtn.style.backgroundColor = '#dc3545';
+        submitBtn.disabled = false;
+    });
+});
 
-        // Apply animations to elements
-        document.querySelectorAll('.ana-contact-method, .ana-stat-item').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
-            observer.observe(el);
-        });
-    </script>
+// Add smooth animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Apply animations to elements
+document.querySelectorAll('.ana-contact-method, .ana-stat-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'all 0.6s ease';
+    observer.observe(el);
+});
+</script>
 
     <footer class="ana-footer">
         <div class="ana-footer-container">
@@ -349,21 +417,21 @@
                                 <i class="fas fa-map-marker-alt"></i>
                                 <div>
                                     <strong>Headquarters</strong>
-                                    <span>Lagos, Nigeria<br>Victoria Island Financial District</span>
+                                    <span>Abuja Nigeria, GRAND HUBB, 1st Avenue, Gwarinpa.</span>
                                 </div>
                             </div>
                             <div class="ana-contact-item">
                                 <i class="fas fa-phone"></i>
                                 <div>
                                     <strong>Phone</strong>
-                                    <span>+234 (0) 1 234 5678</span>
+                                    <span>+2348106103508</span>
                                 </div>
                             </div>
                             <div class="ana-contact-item">
                                 <i class="fas fa-envelope"></i>
                                 <div>
                                     <strong>Email</strong>
-                                    <span>invest@ana-investment.com</span>
+                                    <span>anazagi.investments@gmail.com</span>
                                 </div>
                             </div>
                             <div class="ana-contact-item">
@@ -387,8 +455,8 @@
                                 </button>
                             </div>
                             <div class="ana-social-links">
-                                <a href="#" class="ana-social-link" title="LinkedIn">
-                                    <i class="fab fa-linkedin-in"></i>
+                                <a href="https://t.me/ANATradingCamp" class="ana-social-link" title="Telegram">
+                                    <i class="fab fa-telegram"></i>
                                 </a>
                                 <a href="#" class="ana-social-link" title="Twitter">
                                     <i class="fab fa-twitter"></i>
@@ -396,10 +464,10 @@
                                 <a href="#" class="ana-social-link" title="Facebook">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
-                                <a href="#" class="ana-social-link" title="YouTube">
+                                <a href="https://youtube.com/@a.n.atradingco?si=k31Y4He7Ma54qHWT" class="ana-social-link" title="YouTube">
                                     <i class="fab fa-youtube"></i>
                                 </a>
-                                <a href="#" class="ana-social-link" title="Instagram">
+                                <a href="https://www.instagram.com/gtcz25?igsh=dWc4anllbmEwZHF0" class="ana-social-link" title="Instagram">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </div>
