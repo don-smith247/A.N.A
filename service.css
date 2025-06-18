@@ -775,6 +775,9 @@
         }
 
         @media (max-width: 768px) {
+            .services-hero-content h1{
+                font-size: 40px;
+            }
             .services-grid {
                 grid-template-columns: 1fr;
             }
@@ -790,6 +793,9 @@
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
+            }
+            .big-h{
+                font-size: 10px;
             }
         }
 
